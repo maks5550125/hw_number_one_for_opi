@@ -15,6 +15,42 @@ bool CheckingRowsForSymmetry(int matrix[][MatrixSize], const int MatrixSize);
 int CalculateSumOfBlackMatrixElements(int matrix[][MatrixSize], const int MatrixSize);
 
 int main() {
+    int matrix[MatrixSize][MatrixSize]{ {100, 100, 100, 1},{100, 100, 1, 1}, {100, 1, 1, 1}, {1, 1, 1, 1} };
+
+    setlocale(LC_ALL, "ru");
+
+    // а
+
+    srand(time(NULL));
+
+    CreateMatrix(matrix);
+
+    PrintMatrix(matrix);
+    cout << '\n';
+
+    int maxIndexElementsInRow[MatrixSize] = { 0 };
+
+    FillMaximalIndexes(matrix, maxIndexElementsInRow);
+
+    int multiplicationAfterMaxElementInRow[MatrixSize] = { 0 };
+
+    CalculateMultiplicationAfterMaxElementInRow(matrix, maxIndexElementsInRow, multiplicationAfterMaxElementInRow);
+
+    PrintMultiplicationAfterMaxElementInRow(multiplicationAfterMaxElementInRow);
+    cout << '\n';
+
+    // б
+    bool rowsAreSymmetrical = CheckingRowsForSymmetry(matrix, MatrixSize);
+    if (rowsAreSymmetrical) {
+        cout << "Все строки симметричны относительно среднего элемента.";
+    }
+    else {
+        cout << "Cтроки не симметричны относительно среднего элемента.";
+    }
+    cout << '\n';
+
+    // в
+    cout << "Сумма элементов матрицы, выделенных чёрным цветом равна " << CalculateSumOfBlackMatrixElements(matrix, MatrixSize) << ".\n" << endl;
 
 	return 0;
 }
