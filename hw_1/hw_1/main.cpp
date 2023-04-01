@@ -82,3 +82,15 @@ bool CheckingRowsForSymmetry(int matrix[][MatrixSize], const int MatrixSize) {
 
 	return rowAreSymmetrical;
 }
+
+int CalculateSumOfBlackMatrixElements(int matrix[][MatrixSize], const int MatrixSize) {
+    int sumOfBlackMatrixElements{};
+
+    for (size_t i = 0; i < MatrixSize; i++) {
+        for (size_t j = i; j < MatrixSize; j++) {
+            sumOfBlackMatrixElements += matrix[MatrixSize - 1 - i][j];
+        }
+    }
+
+    return sumOfBlackMatrixElements;
+}
