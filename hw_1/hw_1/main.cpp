@@ -35,3 +35,17 @@ void PrintMatrix(int(&matrix)[MatrixSize][MatrixSize]) {
         cout << endl;
     }
 }
+
+void FillMaximalIndexes(int (&matrix)[MatrixSize][MatrixSize], int (&maxIndexElementsInRow)[MatrixSize]) {
+    for (int i = 0; i < MatrixSize; i++) {
+        int valueMaxElementInRow = INT_MIN;
+        int indexMaxElementInRow = 0;
+        for (int j = 0; j < MatrixSize; j++) {
+            if (matrix[i][j] > valueMaxElementInRow) {
+                valueMaxElementInRow = matrix[i][j];
+                indexMaxElementInRow = j;
+            }
+        }
+        maxIndexElementsInRow[i] = indexMaxElementInRow;
+    }
+}
