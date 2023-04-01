@@ -63,3 +63,22 @@ void CalculateMultiplicationAfterMaxElementInRow(int(&matrix)[MatrixSize][Matrix
         multiplicationAfterMaxElementInRow[i] = tempMultiplicationAfterMaxElementInRow;
     }
 }
+
+bool CheckingRowsForSymmetry(int matrix[][MatrixSize], const int MatrixSize) {
+	bool rowAreSymmetrical = true;
+
+	for (size_t i = 0; i < MatrixSize / 2; i++) {
+		for (size_t j = 0; j < MatrixSize; j++) {
+			if (matrix[i][j] != matrix[MatrixSize - 1 - i][j]) {
+				rowAreSymmetrical = false;
+				break;
+			}
+		}
+
+		if (!rowAreSymmetrical) {
+			break;
+		}
+	}
+
+	return rowAreSymmetrical;
+}
