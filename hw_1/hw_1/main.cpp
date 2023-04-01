@@ -49,3 +49,17 @@ void FillMaximalIndexes(int (&matrix)[MatrixSize][MatrixSize], int (&maxIndexEle
         maxIndexElementsInRow[i] = indexMaxElementInRow;
     }
 }
+
+void CalculateMultiplicationAfterMaxElementInRow(int(&matrix)[MatrixSize][MatrixSize], int(&maxIndexElementsInRow)[MatrixSize], int(&multiplicationAfterMaxElementInRow)[MatrixSize]) {
+    for (int i = 0; i < MatrixSize; i++) {
+        int tempMultiplicationAfterMaxElementInRow = 1;
+
+        for (int j = maxIndexElementsInRow[i]; j < 16; j++) {
+            if (j == maxIndexElementsInRow[i]) {
+                continue;
+            }
+            tempMultiplicationAfterMaxElementInRow *= matrix[i][j];
+        }
+        multiplicationAfterMaxElementInRow[i] = tempMultiplicationAfterMaxElementInRow;
+    }
+}
