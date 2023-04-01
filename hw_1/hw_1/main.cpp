@@ -64,6 +64,12 @@ void CalculateMultiplicationAfterMaxElementInRow(int(&matrix)[MatrixSize][Matrix
     }
 }
 
+void PrintMultiplicationAfterMaxElementInRow(int (&multiplicationAfterMaxElementInRow)[MatrixSize]) {
+    for (int i = 0; i < MatrixSize; i++) {
+        cout << "Строка номер " << i << ", проиведение чисел после максимального элемента в строке равно " << multiplicationAfterMaxElementInRow[i] << endl;
+    } 
+}
+
 bool CheckingRowsForSymmetry(int matrix[][MatrixSize], const int MatrixSize) {
 	bool rowAreSymmetrical = true;
 
