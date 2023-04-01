@@ -26,3 +26,12 @@ void CreateMatrix(int (&matrix)[MatrixSize][MatrixSize]) {
         }
     }
 }
+
+void PrintMatrix(int(&matrix)[MatrixSize][MatrixSize]) {
+    for (int i = 0; i < MatrixSize; i++) {
+        for (int j = 0; j < MatrixSize; j++) {
+            cout << matrix[i][j] << "\t";
+        }
+        cout << endl;
+    }
+}
